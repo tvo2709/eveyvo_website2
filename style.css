@@ -11,3 +11,55 @@
   font-size: 100;
   
 }
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
+.carousel {
+  margin-left: 60%;
+  width: 500px;       /* Your requested fixed width */
+  height: 100vh;      /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  /* To move TOP to BOTTOM: 
+     We start at -100% (hidden above) and move to 0% */
+  animation: spin-down 20s infinite linear;
+}
+
+.card {
+  flex: 0 0 auto;     /* Let the image height dictate the card size */
+  width: 500px;
+  /* If you want the images to keep their 1920x1080 aspect ratio: */
+  height: 281px;      /* (1080/1920) * 500px = ~281px */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* Downward animation logic */
+@keyframes spin-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
