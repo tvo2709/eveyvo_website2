@@ -1,65 +1,65 @@
-.mountains-of-christmas-regular {
-  font-family: "Mountains of Christmas", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.hi {
-  font-family: "Mountains of Christmas", serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 100;
-  
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; 
-}
-
 .carousel {
-  margin-left: 60%;
-  width: 500px;       /* Your requested fixed width */
-  height: 100vh;      /* Full screen height */
+  position: fixed;
+  /* top and height ensure the diagonal line covers the whole screen */
+  top: -50%; 
+  left: 55%; /* Positioned to the right side */
+  
+  width: 20vw; 
+  height: 250vh;
+  
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
+  
+  /* 1. RESET TO 45 DEGREES (Opposite Direction) */
+  transform: rotate(15deg); 
+  transform-origin: center;
+}
+
+.image-container {
+  flex: 0 0 auto;
+  width: 100%; 
+  aspect-ratio: 16 / 9;
   position: relative;
+  z-index: 1;
+  /* 2. MAINTAINING LARGE GAP: 10vh between images */
+  margin-bottom: 0.5vh; 
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+  
+  /* 3. COUNTER-ROTATE BY -45 DEGREES TO STAY UPRIGHT */
+  transform: rotate(-15deg); 
+}
+
+.image-container:hover {
+  z-index: 999;
+}
+
+.image-container:hover img {
+  /* Maintain -45deg rotation on hover while scaling */
+  transform: rotate(-15deg) scale(1.4); 
+  cursor: pointer;
+  box-shadow: 0 1vw 3vw rgba(0,0,0,0.8);
 }
 
 .group {
   display: flex;
   flex-direction: column;
-  /* To move TOP to BOTTOM: 
-     We start at -100% (hidden above) and move to 0% */
-  animation: spin-down 20s infinite linear;
+  /* 4. INSTANT START: Animation moves 0% to -100% so images are already there */
+  animation: spin-up 25s infinite linear;
+  overflow: visible;
+  position: relative;
 }
+.group:hover { z-index: 10; }
 
-.card {
-  flex: 0 0 auto;     /* Let the image height dictate the card size */
-  width: 500px;
-  /* If you want the images to keep their 1920x1080 aspect ratio: */
-  height: 281px;      /* (1080/1920) * 500px = ~281px */
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  display: block;
-}
-
-/* Downward animation logic */
-@keyframes spin-down {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
+/* SEAMLESS LOOP */
+@keyframes spin-up {
+  from { transform: translateY(0%); }
+  to { transform: translateY(-100%); }
 }
