@@ -1,3 +1,49 @@
+/* Sidebar Container */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  left: 10%; /* Positions it on the left side */
+  transform: translateY(-50%); /* Centers it vertically */
+  z-index: 2000; /* Higher than carousel z-index */
+  color: rgb(255, 0, 0);
+  font-family: sans-serif;
+}
+
+/* Title Text */
+.site-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Vertical Menu List */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 1.5rem;
+}
+
+/* Menu Links */
+.menu a {
+  text-decoration: none;
+  color: rgba(0, 255, 0, 0.7);
+  font-size: 1.2rem;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+/* Menu Hover Effect */
+.menu a:hover {
+  color: rgb(0, 0, 0);
+  padding-left: 10px; /* Slight movement on hover */
+}
+
 .carousel {
   position: fixed;
   /* top and height ensure the diagonal line covers the whole screen */
