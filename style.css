@@ -1,111 +1,344 @@
-/* Sidebar Container */
-.side-nav {
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+}
+.bg-stripe {
+  /* 1. STICK TO TOP LEFT: Fixed positioning with zero offsets */
   position: fixed;
-  top: 50%;
-  left: 10%; /* Positions it on the left side */
-  transform: translateY(-50%); /* Centers it vertically */
-  z-index: 2000; /* Higher than carousel z-index */
-  color: rgb(255, 0, 0);
-  font-family: sans-serif;
+  top: 0;
+  left: 00;
+  
+  /* 2. RESPONSIVE CONSTRAINT: Ensure it never crosses the center (max 50vw) */
+  /* Using 40rem as base, but capping it at 50% of screen width */
+  width: min(50rem, 80vw); 
+  
+  /* Oversized height to ensure coverage while rotated */
+  height: 300rem; 
+  
+  background-color: #00FFF2; 
+  
+  /* 3. ALIGNMENT LOGIC: 
+     - Pivot from the top-left corner
+     - Rotate 15deg to match your carousel 
+     - Translate upward so it pre-fills the screen from the very top */
+  transform-origin: top left;
+  transform: rotate(15deg) translateY(-80rem);
+  
+  z-index: 0; 
+  pointer-events: none; 
 }
 
-/* Title Text */
+/* Ensure your menu and carousel are higher than the stripe */
+
+
 .site-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
+  /* 1. STICK TO TOP LEFT */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2500;
+  white-space: nowrap; 
+  pointer-events: none; 
+
+  /* 2. RESPONSIVE FONT SIZE:
+     - 2rem: Minimum size for mobile
+     - 8vw: Preferred fluid size
+     - 5rem: Maximum size for desktop
+  */
+  font-size: clamp(2rem, 8vw, 5rem); 
+  
+  font-family: "Climate Crisis", sans-serif;
+  font-weight: 400;
+  color: black; 
+  /* Responsive stroke width using clamp to match font scale */
+  -webkit-text-stroke: clamp(2px, 0.5vw, 5px) #00FFF2; 
   letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* 3. RESPONSIVE "STICK" LOGIC:
+     - The translateX must move the text 'up' by its own full length.
+     - Using -100% ensures the last letter always touches the top 
+       regardless of how long the text is or what font-size is active.
+  */
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-100%) translateY(-23%);
+}
+
+
+.site-title-shadow {
+ /* 1. STICK TO TOP LEFT */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2400;
+  white-space: nowrap; 
+  pointer-events: none; 
+
+  /* 2. RESPONSIVE FONT SIZE:
+     - 2rem: Minimum size for mobile
+     - 8vw: Preferred fluid size
+     - 5rem: Maximum size for desktop
+  */
+  font-size: clamp(2rem, 8vw, 5rem); 
+  
+  font-family: "Climate Crisis", sans-serif;
+  font-weight: 400;
+  color: #77004B; 
+  /* Responsive stroke width using clamp to match font scale */
+  -webkit-text-stroke: clamp(2px, 0.5vw, 5px) #77004B; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* 3. RESPONSIVE "STICK" LOGIC:
+     - The translateX must move the text 'up' by its own full length.
+     - Using -100% ensures the last letter always touches the top 
+       regardless of how long the text is or what font-size is active.
+  */
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-100%) translateY(25%);
+}
+
+
+/* 1. STICK TO TOP */
+.side-nav {
+  position: fixed;
+  top: 10%;       
+  left: 20%;    
+  z-index: 2000; 
+  padding-top: 5vh; /* Responsive padding from the top */
+  color: rgb(77, 185, 228);
+  font-family: "Dela Gothic One", sans-serif;
   text-transform: uppercase;
 }
 
 /* Vertical Menu List */
 .menu {
+  text-align: right;
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* 2. INCREASED VERTICAL GAP: 
+     Using 'vh' makes the gap grow with screen height */
+  gap: 7vh; 
 }
 
-.menu li {
-  margin-bottom: 1.5rem;
-}
-
+/* DIAGONAL STAGGER (Preserved from previous step) */
+.menu li:nth-child(1) { transform: translateX(0); }
+.menu li:nth-child(2) { transform: translateX(-18px); }
+.menu li:nth-child(3) { transform: translateX(-36px); }
+.menu li:nth-child(4) { transform: translateX(-54px); }
+.menu li:nth-child(5) { transform: translateX(-72px); }
+.menu li:nth-child(6) { transform: translateX(-90px); }
 /* Menu Links */
 .menu a {
+  position: relative;
   text-decoration: none;
-  color: rgba(0, 255, 0, 0.7);
-  font-size: 1.2rem;
-  transition: color 0.3s ease, padding-left 0.3s ease;
+  color: black;
+  z-index: 1;
+  padding: 10px 20px;
+  
+  /* 3. RESPONSIVE FONT SIZE:
+     - 1rem: Minimum size for small screens
+     - 1.5vw: Fluid scaling based on width
+     - 2.5rem: Maximum size for large screens
+  */
+  font-size: clamp(0.6rem, 1.2vw, 2rem); 
+  
+  transition: color 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
   display: inline-block;
+  white-space: nowrap; /* Prevents long menu items from wrapping */
 }
 
 /* Menu Hover Effect */
 .menu a:hover {
-  color: rgb(0, 0, 0);
-  padding-left: 10px; /* Slight movement on hover */
+  color: #00FFF2;
+  padding-left: 10px;
 }
+
+/* The SVG Layer */
+.menu a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8); /* Centered and slightly smaller */
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Places SVG behind the text */
+  
+  /* Link to your SVG file */
+  background: url('icon/hover_menu.svg') no-repeat center;
+  background-size: contain;
+  
+  /* Initial state: Hidden */
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none; /* Mouse ignores this layer */
+}
+
+/* Hover State */
+.menu a:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); /* Slightly pops out */
+}
+
 
 .carousel {
   position: fixed;
-  /* top and height ensure the diagonal line covers the whole screen */
   top: -50%; 
-  left: 55%; /* Positioned to the right side */
+  left: 55%; 
   
-  width: 20vw; 
+  /* 1. RESPONSIVE WITH MINIMUM: 
+     - 280px: Smallest it can get (Mobile)
+     - 20vw: Preferred size (Desktop)
+     - 600px: Maximum size (Ultra-wide screens) 
+  */
+  width: clamp(200px, 20vw, 600px); 
+  
   height: 250vh;
-  
   display: flex;
   flex-direction: column;
   overflow: visible;
-  
-  /* 1. RESET TO 45 DEGREES (Opposite Direction) */
-  transform: rotate(15deg); 
+  transform: rotate(15deg) translateX(-5rem); 
   transform-origin: center;
+  will-change: transform;
+  z-index: 5;
 }
 
 .image-container {
   flex: 0 0 auto;
-  width: 100%; 
-  aspect-ratio: 16 / 9;
+  width: 110%; 
+  aspect-ratio: 16 / 9; /* Height scales proportionally with the clamped width */
   position: relative;
   z-index: 1;
-  /* 2. MAINTAINING LARGE GAP: 10vh between images */
-  margin-bottom: 0.5vh; 
+  margin-bottom: 10px; 
+  transition: transform 0.3s ease;
 }
 
+/* All other chaos, hover (blue/pink rectangles), and animation codes remain exactly as established */
+
+
+/* 1. The NEW PINK Rectangle (Farthest Back) */
+.image-container::before {
+  content: '';
+  position: absolute;
+  /* inset: 0 covers top, right, bottom, left at 0 */
+  inset: 0; 
+  background-color: #77004B; 
+  
+  /* Different rotation and slight offset for depth */
+  transform: rotate(-10deg) translateZ(0); 
+  transform-origin: center;
+  
+  opacity: 0;
+  z-index: -2; /* Ensure it is behind the blue rectangle */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 2. The Original BLUE Rectangle (Middle Layer) */
+.image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #00FFF2; /* Cyan/Blue from your existing code */
+  
+  /* Original rotation */
+  transform: rotate(-5deg) translateZ(0);
+  
+  opacity: 0;
+  z-index: -1; /* Ensure it is behind the image but above the pink */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Image Itself (Top Layer) --- */
 .image-container img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
-  
-  /* 3. COUNTER-ROTATE BY -45 DEGREES TO STAY UPRIGHT */
-  transform: rotate(-15deg); 
+  transform: rotate(-15deg) translateZ(0); 
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* --- HOVER EFFECTS --- */
 .image-container:hover {
   z-index: 999;
+  transform: translateX(0) rotate(0); /* Reset chaos */
 }
 
+/* Animate the Pink Rectangle on hover */
+.image-container:hover::before {
+  opacity: 1;
+  /* Scale slightly larger than the blue one for a layered glow */
+  transform: rotate(-10deg) scale(1.48); 
+}
+
+/* Animate the Blue Rectangle on hover */
+.image-container:hover::after {
+  opacity: 1;
+  transform: rotate(-25deg) scale(1.44); /* Smaller scale than pink */
+}
+
+/* Animate the Image itself on hover */
 .image-container:hover img {
-  /* Maintain -45deg rotation on hover while scaling */
   transform: rotate(-15deg) scale(1.4); 
   cursor: pointer;
-  box-shadow: 0 1vw 3vw rgba(0,0,0,0.8);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
 }
+
+
+
+/* --- CHAOS LOGIC: Staggering positions and tilts --- */
+
+/* Shift even-numbered images slightly to the right and tilt clockwise */
+.image-container:nth-child(2n) {
+  transform: translateX(15%) rotate(2deg);
+}
+
+/* Shift every 3rd image to the left and tilt counter-clockwise */
+.image-container:nth-child(3n) {
+  transform: translateX(-12%) rotate(-3deg);
+}
+
+/* Shift every 4th image further right and tilt more aggressively */
+.image-container:nth-child(4n) {
+  transform: translateX(20%) rotate(4deg);
+}
+
+
+
+/* ... group and spin-up animation remain exactly as you provided ... */
+
+
+/* Keep the rest of your body, carousel, and group code... */
 
 .group {
   display: flex;
   flex-direction: column;
-  /* 4. INSTANT START: Animation moves 0% to -100% so images are already there */
-  animation: spin-up 25s infinite linear;
+  /* 2. REFINED ANIMATION: Slower time often helps with pixel-snapping */
+  animation: spin-up 40s infinite linear;
   overflow: visible;
   position: relative;
+  /* Ensures the browser treats this as a single layer */
+  backface-visibility: hidden;
 }
+
 .group:hover { z-index: 10; }
 
 /* SEAMLESS LOOP */
 @keyframes spin-up {
-  from { transform: translateY(0%); }
-  to { transform: translateY(-100%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    /* Moving exactly -100% of the group ensures the second 
+       group lands exactly where the first one started. */
+    transform: translateY(-100%);
+  }
 }
