@@ -18,11 +18,11 @@
     <nav class="side-nav">
       
       <ul class="menu">
-        <li><a href="index.html">Stage Design</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">3D Projects</a></li>
-        <li><a href="services.html">Installations</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="stagedesign.html">Stage Design</a></li>
+        <li><a href="3dproj.html">3D Arts</a></li>
+        <li><a href="installations.html">Projects</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('popup_about').showModal()">About Me</a></li>
+        <li><a href="javascript:void(0)" onclick="document.getElementById('popup_contact').showModal()">Contact</a></li>
         <li><a href="draft.html">Drafts</a></li>
       </ul>
     </nav>
@@ -46,9 +46,29 @@
       </div>
     </div>
 
+    <dialog id="popup_about">
+      <div class="popup-content">
+        <h2>About Me</h2>
+        <div class="scroll-area">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+        <button class="close-btn" onclick="document.getElementById('popup_about').close()">CLOSE</button>
+      </div>
+    </dialog>
 
-
-
+    <dialog id="popup_contact">
+      <div class="popup-content">
+        <h2>Contact</h2>
+        <div class="scroll-area">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+        <button class="close-btn" onclick="document.getElementById('popup_contact').close()">CLOSE</button>
+      </div>
+    </dialog>
   </body>
 
   

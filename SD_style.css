@@ -1,0 +1,76 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.site-title {
+  /* 1. STICK TO TOP LEFT */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2500;
+  white-space: nowrap; 
+  pointer-events: none; 
+
+  /* 2. RESPONSIVE FONT SIZE:
+     - 2rem: Minimum size for mobile
+     - 8vw: Preferred fluid size
+     - 5rem: Maximum size for desktop
+  */
+  font-size: clamp(2rem, 8vw, 5rem); 
+  
+  font-family: "Climate Crisis", sans-serif;
+  font-weight: 400;
+  color: black; 
+  /* Responsive stroke width using clamp to match font scale */
+  -webkit-text-stroke: clamp(2px, 0.5vw, 5px) #00FFF2; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* 3. RESPONSIVE "STICK" LOGIC:
+     - The translateX must move the text 'up' by its own full length.
+     - Using -100% ensures the last letter always touches the top 
+       regardless of how long the text is or what font-size is active.
+  */
+  transform-origin: center;
+
+  
+}
+
+
+.site-title-shadow {
+ /* 1. STICK TO TOP LEFT */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2400;
+  white-space: nowrap; 
+  pointer-events: none; 
+
+  /* 2. RESPONSIVE FONT SIZE:
+     - 2rem: Minimum size for mobile
+     - 8vw: Preferred fluid size
+     - 5rem: Maximum size for desktop
+  */
+  font-size: clamp(2rem, 8vw, 5rem); 
+  
+  font-family: "Climate Crisis", sans-serif;
+  font-weight: 400;
+  color: #77004B; 
+  /* Responsive stroke width using clamp to match font scale */
+  -webkit-text-stroke: clamp(2px, 0.5vw, 5px) #77004B; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* 3. RESPONSIVE "STICK" LOGIC:
+     - The translateX must move the text 'up' by its own full length.
+     - Using -100% ensures the last letter always touches the top 
+       regardless of how long the text is or what font-size is active.
+  */
+  transform-origin: center;
+
+}

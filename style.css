@@ -158,7 +158,7 @@ body, html {
 /* Menu Hover Effect */
 .menu a:hover {
   color: #00FFF2;
-  padding-left: 10px;
+  padding-left: 13px;
 }
 
 /* The SVG Layer */
@@ -341,4 +341,87 @@ body, html {
        group lands exactly where the first one started. */
     transform: translateY(-100%);
   }
+}
+
+/* Blurs the chaotic carousel behind the popup */
+#popup::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+#popup_about, #popup_contact {
+  /* 1. PERFECT CENTERING */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  
+  /* 2. RESPONSIVE SIZING */
+  width: min(80vw, 500px); /* 90% width on mobile, max 500px on desktop */
+  max-height: 80vh;        /* Prevents popup from being taller than screen */
+  
+  /* 3. DESIGN AESTHETIC */
+  background: #000;
+  border: 3px solid #00FFF2;
+  color: white;
+  padding: 2rem;
+  overflow: hidden;        /* Keeps the border clean */
+  box-shadow: 0 0 50px rgba(0, 255, 242, 0.2);
+  z-index: 9999;
+}
+
+
+
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.popup-content h2 {
+  font-family: "Dela Gothic One", sans-serif;
+  color: #00FFF2;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/* 4. SCROLLABLE AREA: If the text is long on small screens */
+.scroll-area {
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom Scrollbar for 2026 browsers */
+.scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: #00FFF2;
+}
+
+.scroll-area p {
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: #e0e0e0;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: #00FFF2;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: white;
+  box-shadow: 0 0 15px white;
+  transform: translateY(-2px);
 }
