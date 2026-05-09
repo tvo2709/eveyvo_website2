@@ -1,75 +1,168 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>EVEY VO — Portfolio Menu</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&family=Dela+Gothic+One&display=swap" rel="stylesheet">
-  </head>
-  <style>
-  </style>
-  <body>    
-    <script type="text/javascript" src="script.js"></script>
-    <div class="bg-stripe"></div>
-    <div class="site-title">HI! I'M EVEY VO</div>
-    <div class="site-title-shadow">HI! I'M EVEY VO</div>
-    <nav class="side-nav">
-      
-      <ul class="menu">
-        <li><a href="stagedesign.html">Projections</a></li>
-        <li><a href="3dproj.html">3D Arts</a></li>
-        <li><a href="installations.html">Projects</a></li>
-        <li><a href="javascript:void(0)" onclick="document.getElementById('popup_about').showModal()">About Me</a></li>
-        <li><a href="javascript:void(0)" onclick="document.getElementById('popup_contact').showModal()">Contact</a></li>
-        <li><a href="draft.html">Drafts</a></li>
-      </ul>
-    </nav>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@500;700&family=Bebas+Neue&family=Anton&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Dela Gothic One loaded separately so the request can't get garbled by the longer combined URL -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+    rel="stylesheet"
+  />
 
-    <div class="carousel">
-      <div class="group">
-        <div class="image-container"><img src="img/8_7.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/8-5.png"alt="FacDance1"></div>
-        <div class="image-container"><img src="img/12_2.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_4.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_3.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_1.png" alt="FacDance1"></div>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle vignette + scanline grain to imitate game-menu UI -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- <div class="evey-tag" aria-hidden="true">HI! I'M EVEY VO</div> -->
+  
+
+  <!-- Top corner HUD -->
+  <header class="hud-top">
+    <div class="hud-brand">
+      <span class="hud-dot"></span>
+      <span class="hud-brand-text">PORTFOLIO/2026</span>
+    </div>
+    <div class="hud-status">
+      <span class="hud-blink">●</span> ONLINE
+    </div>
+  </header>
+
+  <main class="menu">
+    <!-- BLUE STRIP 1 — INSTALLATIONS, slides Left → Right -->
+    <section class="strip-section orange-section" data-direction="ltr" data-pos="top">
+      <div class="strip-viewport">
+        <div class="strip" id="strip-orange" aria-label="Installations carousel"></div>
+        <div class="center-marker" aria-hidden="true">
+          <div class="bracket bracket-l"></div>
+          <div class="bracket bracket-r"></div>
+        </div>
       </div>
-      <div aria-hidden class="group">
-        <div class="image-container"><img src="img/8_7.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/8-5.png"alt="FacDance1"></div>
-        <div class="image-container"><img src="img/12_2.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_4.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_3.png" alt="FacDance1"></div>
-        <div class="image-container"><img src="img/10_1.png" alt="FacDance1"></div>
+      <div class="section-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- BLACK STRIP — STAGE DESIGN, slides Right → Left -->
+    <section class="strip-section black-section" data-direction="rtl" data-pos="mid">
+      <div class="strip-viewport">
+        <div class="strip" id="strip-black" aria-label="Stage design carousel"></div>
+        <div class="center-marker" aria-hidden="true">
+          <div class="bracket bracket-l"></div>
+          <div class="bracket bracket-r"></div>
+        </div>
+      </div>
+      <div class="section-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- BLUE STRIP 2 — 3D ARTS, slides Left → Right -->
+    <section class="strip-section orange-section" data-direction="ltr" data-pos="bot">
+      <div class="strip-viewport">
+        <div class="strip" id="strip-3d" aria-label="3D arts carousel"></div>
+        <div class="center-marker" aria-hidden="true">
+          <div class="bracket bracket-l"></div>
+          <div class="bracket bracket-r"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section labels overlaid on the menu, anchored at section intersections -->
+    <div class="menu-labels" aria-hidden="false">
+      <div class="section-label section-label-anchor-top" data-section-key="orange">
+        <span class="label-num">01</span>
+        <h2 class="label-title">INSTALLATIONS</h2>
+        <span class="label-tag">/ SELECT TO VIEW</span>
+      </div>
+      <div class="section-label section-label-seam-1" data-section-key="black">
+        <span class="label-num">02</span>
+        <h2 class="label-title">STAGE DESIGN</h2>
+        <span class="label-tag">/ SELECT TO VIEW</span>
+      </div>
+      <div class="section-label section-label-seam-2" data-section-key="threed">
+        <span class="label-num">03</span>
+        <h2 class="label-title">3D ARTS</h2>
+        <span class="label-tag">/ SELECT TO VIEW</span>
       </div>
     </div>
+  </main>
 
-    <dialog id="popup_about">
-      <div class="popup-content">
-        <h2>About Me</h2>
-        <div class="scroll-area">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
+  <!-- Bottom HUD (button prompts) -->
+  <footer class="hud-bottom">
+    <span class="hud-key"><kbd>▲</kbd><kbd>▼</kbd> SECTION</span>
+    <span class="hud-key"><kbd>◀</kbd><kbd>▶</kbd> NAVIGATE</span>
+    <span class="hud-key"><kbd>↵</kbd> SELECT</span>
+    <span class="hud-key"><kbd>ESC</kbd> BACK</span>
+    <span class="hud-spacer"></span>
+    <span class="hud-counter" id="hud-counter">— / —</span>
+  </footer>
+
+  <!-- Detail modal (hidden by default) -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+
+    <div class="modal-window" role="document">
+      <header class="modal-header">
+        <div class="modal-tag">
+          <span class="modal-num" id="modal-num">01</span>
+          <span class="modal-section" id="modal-section">INSTALLATIONS</span>
+          <span class="modal-year" id="modal-year">—</span>
         </div>
-        <button class="close-btn" onclick="document.getElementById('popup_about').close()">CLOSE</button>
-      </div>
-    </dialog>
+        <button class="modal-close" data-modal-close aria-label="Close detail">
+          <span class="modal-close-x">✕</span>
+          <span class="modal-close-label">ESC</span>
+        </button>
+      </header>
 
-    <dialog id="popup_contact">
-      <div class="popup-content">
-        <h2>Contact</h2>
-        <div class="scroll-area">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
+      <h2 class="modal-title" id="modal-title">—</h2>
+      <p class="modal-subtitle" id="modal-subtitle">—</p>
+
+      <div class="modal-hero">
+        <video
+          id="modal-video"
+          controls
+          preload="metadata"
+          playsinline
+          crossorigin="anonymous"
+        ></video>
+        <div class="modal-hero-frame" aria-hidden="true">
+          <div class="hero-bracket hero-bracket-tl"></div>
+          <div class="hero-bracket hero-bracket-tr"></div>
+          <div class="hero-bracket hero-bracket-bl"></div>
+          <div class="hero-bracket hero-bracket-br"></div>
         </div>
-        <button class="close-btn" onclick="document.getElementById('popup_contact').close()">CLOSE</button>
       </div>
-    </dialog>
-  </body>
 
-  
+      <div class="modal-body">
+        <aside class="modal-meta">
+          <dl>
+            <div><dt>TYPE</dt><dd id="modal-type">—</dd></div>
+            <div><dt>LOCATION</dt><dd id="modal-location">—</dd></div>
+            <div><dt>ROLE</dt><dd id="modal-role">—</dd></div>
+            <div><dt>STATUS</dt><dd id="modal-status">—</dd></div>
+          </dl>
+
+          <h3 class="modal-meta-title">CREDITS</h3>
+          <ul class="modal-credits" id="modal-credits"></ul>
+        </aside>
+
+        <article class="modal-text" id="modal-text"></article>
+      </div>
+
+      <section class="modal-gallery">
+        <h3 class="modal-gallery-title">DOCUMENTATION</h3>
+        <div class="modal-gallery-grid" id="modal-gallery"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
