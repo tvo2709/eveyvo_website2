@@ -88,25 +88,20 @@ const ORANGE_ITEMS = [
   /* Item 1 is fully filled in as a template. Copy this shape for any
      piece you want richly described in the modal. */
   {
-    title:    "Genesis Hall",
-    subtitle: "Light installation · 2024",
+    title:    "Virtual Blooming",
+    subtitle: "Interactive Projections · 2023",
     tag:      "INST",
     src:      "img/I1.webp",
-    type:     "Light installation",
-    location: "MoCA, San Francisco",
-    role:     "Lead designer",
+    type:     "Interactive Projections",
+    location: "University of Maryland, College Park",
+    role:     "Artist",
     status: "archived",
     credits: [
-      "Direction · Evey Vo",
-      "Lighting design · Otto Reins",
-      "Fabrication · Studio Twelve",
-      "Sound · Kira Mendoza",
+      "Evey Vo",
     ],
     description: [
-      "Genesis Hall is a twelve-meter atrium installation that translates archival audio of the building's first decade into projected light and tactile resin forms.",
-      "The piece is structured in three movements — entry, central chamber, and corridor — each driven by a custom DMX rig synced to a generative score.",
-      "Documentation includes stills, audio captures, and visitor traces from the original run; the accompanying essay was co-written with curator Adriana Yoon.",
-      "Press inquiries can be directed to studio@eveyvo.work.",
+      "Virtual Blooming  is an immersive and interactive projection that showcases the splendor of human interaction within virtual spaces. As visitors enter the room, they will encounter a projection of matrices, which symbolize the virtual spaces that encompassed our lives during the quarantine period. To emphasize the contrast between these digital environments and our organic existence, vibrant flowers will be projected onto their bodies, serving as a visual representation of our living forms. Furthermore, as multiple individuals enter the room, green cables resembling plant roots will gradually emerge beneath their feet, symbolizing the interconnectedness between human beings. These connections, although facilitated by mechanical means, remain vibrant and alive, underscoring the organic nature of human relationships.",
+      "Made with Azure Kinect DK, Unity 3D, Blender",
     ],
     // video:   "videos/genesis-hall.mp4",  // (optional) drop in your own
     // gallery: ["img/I1.webp", "img/I1-detail-a.png", "img/I1-detail-b.png"],
@@ -420,14 +415,31 @@ function openModal(item, sectionKey, idx) {
   $('modal-type').textContent     = d.type;
   $('modal-location').textContent = d.location;
   $('modal-role').textContent     = d.role;
-  $('modal-status').textContent   = d.status;
 
-  // 3D Arts (and any item with `heroImage: true`) show a large image
-  // in place of the video player.
-  const useImageHero = sectionKey === 'threed' || item.heroImage === true;
-  // Toggle the simplified "image-only" variant of the modal for 3D Arts.
+  // Hero rules:
+  //   - 3D Arts (or `heroImage: true`)        -> show big image as hero
+  //   - Has a `video` field                    -> show video player as hero
+  //   - Otherwise (Installations / Stage Design without video)
+  //                                            -> NO hero at all; the only
+  //                                               images come from the
+  //                                               DOCUMENTATION gallery.
+  const isThreeD     = sectionKey === 'threed' || item.heroImage === true;
+  const useVideoHero = !!item.video && !isThreeD;
+  const useImageHero = isThreeD;
+  const showHero     = useImageHero || useVideoHero;
+
+  // Simplified layout (no meta sidebar, no gallery, 1 paragraph) is for
+  // 3D Arts only.
   const modalWindowEl = modalEl.querySelector('.modal-window');
-  if (modalWindowEl) modalWindowEl.classList.toggle('is-threed', useImageHero);
+  if (modalWindowEl) {
+    modalWindowEl.classList.toggle('is-threed', isThreeD);
+    modalWindowEl.classList.toggle('no-hero', !showHero);
+  }
+
+  // Find the hero container so we can hide it entirely when neither a
+  // video nor a hero image is appropriate.
+  const heroContainerEl = modalEl.querySelector('.modal-hero');
+  if (heroContainerEl) heroContainerEl.style.display = showHero ? '' : 'none';
 
   if (useImageHero) {
     if (modalVideoEl) {
@@ -441,7 +453,7 @@ function openModal(item, sectionKey, idx) {
       modalImageEl.alt = item.title;
       modalImageEl.style.display = 'block';
     }
-  } else {
+  } else if (useVideoHero) {
     if (modalImageEl) {
       modalImageEl.style.display = 'none';
       modalImageEl.removeAttribute('src');
@@ -451,6 +463,18 @@ function openModal(item, sectionKey, idx) {
       modalVideoEl.poster = d.poster;
       modalVideoEl.src = d.video;
       modalVideoEl.load();
+    }
+  } else {
+    // No hero — unload both media elements so nothing keeps playing.
+    if (modalImageEl) {
+      modalImageEl.style.display = 'none';
+      modalImageEl.removeAttribute('src');
+    }
+    if (modalVideoEl) {
+      modalVideoEl.pause();
+      modalVideoEl.removeAttribute('src');
+      modalVideoEl.load();
+      modalVideoEl.style.display = 'none';
     }
   }
 

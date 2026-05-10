@@ -92,7 +92,7 @@ body {
   text-orientation: mixed;
   white-space: nowrap;
   /* Dela Gothic One — locked specifically for the standalone name. */
-  font-family: 'Dela Gothic One', var(--font-display);
+  font-family: var(--font-display);
   font-style: normal; /* Dela Gothic One only ships a regular cut */
   font-size: var(--evey-size);
   font-weight: 400;
