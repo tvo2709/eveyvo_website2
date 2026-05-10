@@ -215,6 +215,7 @@ const BLACK_ITEMS = [
       "Sound Design · Emil Mendoza",
     ],
     description: [""],
+    gallery: ["img/S1.webp", "img/S1/S11.webp", "img/S1/S12.webp", "img/S1/S13.webp", "img/S1/S14.webp", "img/S1/S15.webp", "img/S1/S16.webp"], 
    },
   { title: "Planet GenZ",        subtitle: "Faculty Dance · 2025",    tag: "STAGE", src: "img/S2.webp",
     type:     "Dance",
@@ -229,6 +230,8 @@ const BLACK_ITEMS = [
       "Sound Design · Roni Lancaster",
     ],
     description: [""],
+    gallery: ["img/S2.webp", "img/S2/S21.webp", "img/S2/S22.webp", "img/S2/S23.webp", "img/S2/S24.webp", "img/S2/S25.webp", "img/S2/S26.webp"],
+    
    },
   { title: "Freedom's Cadence",   subtitle: "Spring MFA Dance · 2025",             tag: "STAGE", src: "img/S3.webp",
     type:     "Dance",
@@ -243,6 +246,7 @@ const BLACK_ITEMS = [
       "Sound Design · Kiefer Cure",
     ],
     description: [""],
+    gallery: ["img/S3.webp", "img/S3/S31.webp", "img/S3/S32.webp", "img/S3/S33.webp"],
    },
   { title: "3 (is a magic number)", subtitle: "Fearless New Works Festival · 2026",          tag: "STAGE", src: "img/S4.webp",
     type:     "Dance",
@@ -257,6 +261,7 @@ const BLACK_ITEMS = [
       "Sound Design · Kiefer Cure",
     ],
     description: [""],
+    gallery: ["img/S4.webp", "img/S4/S41.webp", "img/S4/S42.webp", "img/S4/S43.webp", "img/S4/S44.webp"],
    },
   { title: "Split Skies",         subtitle: "Fearless New Works Festival · 2026",             tag: "STAGE", src: "img/S5.webp",
     type:     "Dance",
@@ -271,6 +276,7 @@ const BLACK_ITEMS = [
       "Sound Design · Kiefer Cure",
     ],
     description: [""],
+    gallery: ["img/S5.webp", "img/S5/S51.webp"],
    },
 ];
 
