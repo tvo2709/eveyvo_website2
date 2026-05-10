@@ -25,8 +25,8 @@ const THEME = {
     sectionNum:   "clamp(28px, 4vw, 56px)",  // "01" / "02" / "03"
   },
   card: {
-    width:  "clamp(180px, 18vw, 300px)",
-    height: "clamp(120px, 12vw, 200px)",
+    width:  "clamp(220px, 22vw, 380px)",
+    height: "clamp(200px, 25vh, 320px)",
   },
 
   /* ------- ANIMATION TIMING ------- */
@@ -114,9 +114,9 @@ const ORANGE_ITEMS = [
 
   // Items 2-6 use auto-generated placeholder text in the modal.
   // Add any of the optional fields above to override per-item.
-  { title: "Me Linh's Drumbeats",    
-    subtitle: "Projections / Mechanism · 2025",          
-    tag: "INST", 
+  { title: "Me Linh's Drumbeats",
+    subtitle: "Projections / Mechanism · 2025",
+    tag: "INST",
     src: "img/I0.webp",
     type:     "Projections, Mechanism",
     location: "University of Maryland, College Park",
@@ -132,9 +132,9 @@ const ORANGE_ITEMS = [
   },
 
 
-  { title: "Rewind, Fast Forward",    
-    subtitle: "Projections Mapping · 2024",             
-    tag: "INST", 
+  { title: "Rewind, Fast Forward",
+    subtitle: "Projections Mapping · 2024",
+    tag: "INST",
     src: "img/I2.webp",
     type:     "Projections Mapping",
     location: "University of Maryland, College Park",
@@ -146,7 +146,7 @@ const ORANGE_ITEMS = [
     ],
     description: [
       "Rewind, Fast Forward is a piece that revolves around the idea of wanting to grow up fast but then wanting to take it all back once it is too late. At different ages, we all have different reasons to hide underneath the table, whether as a child finding this hideout as a place of comfort, or as an adult who wants to hide from the harsh world and responsibilities. Through the sunroofs looking up two different skies, we explored how time affect our mindset and perspective, and invited audience to reminisce on the childhood days as they push a toy car running through the pole connecting between two ends of the table.",
-    ],    
+    ],
   },
   { title: "Newborns", subtitle: "Installation · 2024",  tag: "INST", src: "img/I3.webp",
     type:     "Installation",
@@ -159,7 +159,7 @@ const ORANGE_ITEMS = [
     description: [
       "The new “creatures” born within the net, nurtured by your data, and are growing increasingly intelligent by every second. Through the screen, they are looking directly at you, as you are looking right at them. You are facing them, perhaps questioning, being entertained, or judging, but how long would it take for them to learn how to do the same? Yes, as they learn the way we speak, write, draw, and think, they can as well learn how to express emotions. Being presented in this piece, you are invited to sit down, facing the screen, and the newborn creature will show you its learning progress of being a “proper” human. In this installation, using a camera to detect facial figure, the newborns only show themselves when there is audience sitting in front of it, watching them repeatedly practice awkward expressions as a process of learning and adapting. ",
       "Made with Unreal Engine 5 (Metahuman), Adobe 3D Substance Painter, TouchDesigner",
-    ],  
+    ],
    },
   { title: "Silent Fantasy",     subtitle: "Projections · 2023",        tag: "INST", src: "img/I4.webp",
     type:     "Installation",
@@ -172,7 +172,7 @@ const ORANGE_ITEMS = [
     description: [
       "Silent Fantasy explores coping mechanisms and the concept of escapism in a world that is harsh and cold place, devoid of colors, and the stars can’t be seen through solid high-rises. It serves as a reminder that even in the midst of chaos, there exists the potential for serenity and wonder, waiting to be discovered within the depths of our own imagination. Through a “window” looking out the labyrinth of steel and white lights, we face the reality of being trapped in a dystopian monochromatic cityscape, where the all the colors and nature has gone, leaving behind a dark, suffocating, and gloomy world dominated by high-rises. As we clear out the noises surrounding us, we can escape to our own imaginary world, which is filled by a kaleidoscope of shifting hues and vibrant shades. Using sound sensor and visualized projection that constantly changing according to the sound level, this project is a filter that cover up the whole hard truth of the world we’re in, giving us a little bit of a lively and stress-free moment.  ",
       "Made with Blender, TouchDesign and sound sensor",
-    ],      
+    ],
    },
   { title: "Through the Heart",       subtitle: "Installation · 2024",            tag: "INST", src: "img/I5.webp",
     type:     "Installation",
@@ -185,7 +185,7 @@ const ORANGE_ITEMS = [
     description: [
     "Through the Heart explores the concept of time through the lens of our heart, specifically our emotions, our memories, and how they influence our perception of time. As our emotions change, our feelings of time are also significantly affected, and heart rate is a reliable source of revealing our emotions. Each and everyone of us has an unique heartbeat, implying we all have our own pace and perception of time. In this installation, time does not have a solid definition. Its own shape and meaning relies on persons’ emotions at the moment. In this installation, the heartbeat recorded from the audience will be presented on computer’s screen, visualized and projected onto the resin heart sculptures, creating unique experience for each of the audience.",
       "Made with Arduino heartbeat sensor, resin printed heart and TouchDesigner projection",
-    ],      
+    ],
    },
   { title: "Yen - Interactive short film",    subtitle: "Interactive Film · 2024",           tag: "INST", src: "img/I6.webp",
     type:     "Installation",
@@ -201,7 +201,7 @@ const ORANGE_ITEMS = [
     description: [
     "Yen is a horror short film inspired by Southeast Asian folklore and urban legends. The story unfolds from the perspective of a mysterious figure observing Cali, a college student searching for her missing friend, who had attempted to reach out through cryptic means. As Cali is transfered into an alternate dimension, she finds herself relentlessly pursued by an unknown beast while uncovering the clues her friend left behind. Throughout the film, the audience must adapt to the eerie, ever-changing environment, where objects react dynamically to the unfolding narrative. Viewers are not mere spectators but active participants—using light sensors and sound recorders, their actions directly influence the course of the story, making every experience unique and immersive.",
     "Made with Arduino sensors, Epsynth, After Affects, Unity, and physical installation with 40 inches monitor, stereo speakers and interactive props",
-    ],       
+    ],
    },
 ];
 
@@ -218,11 +218,8 @@ const BLACK_ITEMS = [
       "Lighting Design · Alex Russell",
       "Costume Design · Christina Toth",
       "Sound Design · Emil Mendoza",
-      
     ],
-    description: [
-    "",
-    ], 
+    description: [""],
    },
   { title: "Planet GenZ",        subtitle: "Faculty Dance · 2025",    tag: "STAGE", src: "img/S2.webp",
     type:     "Dance",
@@ -235,11 +232,8 @@ const BLACK_ITEMS = [
       "Lighting Design · Yichen Lu",
       "Costume Design · Anna Sorrentino",
       "Sound Design · Roni Lancaster",
-      
     ],
-    description: [
-    "",
-    ]
+    description: [""],
    },
   { title: "Freedom's Cadence",   subtitle: "Spring MFA Dance · 2025",             tag: "STAGE", src: "img/S3.webp",
     type:     "Dance",
@@ -252,11 +246,8 @@ const BLACK_ITEMS = [
       "Lighting Design · Mariah Faulkner",
       "Costume Design · Angeli Novio",
       "Sound Design · Kiefer Cure",
-      
     ],
-    description: [
-    "",
-    ]
+    description: [""],
    },
   { title: "3 (is a magic number)", subtitle: "Fearless New Works Festival · 2026",          tag: "STAGE", src: "img/S4.webp",
     type:     "Dance",
@@ -269,11 +260,8 @@ const BLACK_ITEMS = [
       "Lighting Design · Gabriella Loshin",
       "Costume Design · Emily Davis",
       "Sound Design · Kiefer Cure",
-      
     ],
-    description: [
-    "",
-    ]
+    description: [""],
    },
   { title: "Split Skies",         subtitle: "Fearless New Works Festival · 2026",             tag: "STAGE", src: "img/S5.webp",
     type:     "Dance",
@@ -286,94 +274,34 @@ const BLACK_ITEMS = [
       "Lighting Design · Yichen Lu",
       "Costume Design · Eliana Harper",
       "Sound Design · Kiefer Cure",
-      
     ],
-    description: [
-    "",
-    ]
+    description: [""],
    },
 ];
 
 /* ---------- 3D ARTS — bottom blue strip ------------------------------ */
+/* Note: 3D Arts items show a LARGE IMAGE in the modal (no video). */
 const THREED_ITEMS = [
   { title: "The Last Sun",  subtitle: "Blender · 2023",          tag: "3D", src: "img/D1.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"], description: [""] },
   { title: "Sophie's Hat Shop",    subtitle: "Blender · 2024",            tag: "3D", src: "img/D2.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "Made and Rendered in Blender, inspired by Howl’s Moving Castle",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"],
+    description: ["Made and Rendered in Blender, inspired by Howl's Moving Castle"] },
   { title: "Rusty Rudder", subtitle: "Blender· 2022",       tag: "3D", src: "img/D3.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "Made and Rendered in Blender. recreated a scene from Genshin Impact",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"],
+    description: ["Made and Rendered in Blender. recreated a scene from Genshin Impact"] },
   { title: "Buried Playground",    subtitle: "Blender · 2021", tag: "3D", src: "img/D4.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"], description: [""] },
   { title: "Vietnamese Childhood Living",  subtitle: "Blender · 2024",         tag: "3D", src: "img/D5.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"], description: [""] },
   { title: "Night at Church",      subtitle: "Blender · 2022",          tag: "3D", src: "img/D6.webp",
-    type:     "3D Arts",
-    location: "",
-    role:     "Artist",
-    status: "archived",
-    credits: [
-      "Evey Vo",
-      
-    ],
-    description: [
-    "",
-    ]
-   },
+    type: "3D Arts", location: "", role: "Artist", status: "archived",
+    credits: ["Evey Vo"], description: [""] },
 ];
 
 const PLACEHOLDER_VIDEO = THEME.placeholderVideo;
@@ -414,7 +342,7 @@ function cardHTML(item, displayIdx, sectionKey) {
   const fallback = `data:image/svg+xml;utf8,${encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440">
       <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ff5b1a"/><stop offset="100%" stop-color="#0a0a0a"/>
+        <stop offset="0%" stop-color="#0004ff"/><stop offset="100%" stop-color="#0a0a0a"/>
       </linearGradient></defs>
       <rect width="640" height="440" fill="url(#g)"/>
       <text x="50%" y="55%" text-anchor="middle" fill="#f5ecdf"
@@ -442,7 +370,7 @@ function cardHTML(item, displayIdx, sectionKey) {
 function detailsFor(item, sectionKey, idx) {
   const meta = SECTION_META[sectionKey];
   const year = (item.subtitle.match(/(20\d{2})/) || [, "2024"])[1];
-  const status = ["LIVE","ARCHIVED","ON TOUR","IN DEVELOPMENT","PERMANENT","TRAVELING","RETIRED"][idx % 7];
+  const status = item.status || ["LIVE","ARCHIVED","ON TOUR","IN DEVELOPMENT","PERMANENT","TRAVELING","RETIRED"][idx % 7];
   const muses = ["Persona 5","Metaphor: ReFantazio","Yayoi Kusama","Ryoji Ikeda"];
   return {
     num: meta.num, sectionLabel: meta.label,
@@ -473,6 +401,7 @@ function detailsFor(item, sectionKey, idx) {
 /* ---------- modal --------------------------------------------------- */
 const modalEl        = document.getElementById('modal');
 const modalVideoEl   = document.getElementById('modal-video');
+const modalImageEl   = document.getElementById('modal-image');     // big image hero (3D Arts)
 const modalGalleryEl = document.getElementById('modal-gallery');
 const modalCreditsEl = document.getElementById('modal-credits');
 const modalTextEl    = document.getElementById('modal-text');
@@ -493,9 +422,37 @@ function openModal(item, sectionKey, idx) {
   $('modal-role').textContent     = d.role;
   $('modal-status').textContent   = d.status;
 
-  modalVideoEl.poster = d.poster;
-  modalVideoEl.src = d.video;
-  modalVideoEl.load();
+  // 3D Arts (and any item with `heroImage: true`) show a large image
+  // in place of the video player.
+  const useImageHero = sectionKey === 'threed' || item.heroImage === true;
+  // Toggle the simplified "image-only" variant of the modal for 3D Arts.
+  const modalWindowEl = modalEl.querySelector('.modal-window');
+  if (modalWindowEl) modalWindowEl.classList.toggle('is-threed', useImageHero);
+
+  if (useImageHero) {
+    if (modalVideoEl) {
+      modalVideoEl.pause();
+      modalVideoEl.removeAttribute('src');
+      modalVideoEl.load();
+      modalVideoEl.style.display = 'none';
+    }
+    if (modalImageEl) {
+      modalImageEl.src = item.src;
+      modalImageEl.alt = item.title;
+      modalImageEl.style.display = 'block';
+    }
+  } else {
+    if (modalImageEl) {
+      modalImageEl.style.display = 'none';
+      modalImageEl.removeAttribute('src');
+    }
+    if (modalVideoEl) {
+      modalVideoEl.style.display = '';
+      modalVideoEl.poster = d.poster;
+      modalVideoEl.src = d.video;
+      modalVideoEl.load();
+    }
+  }
 
   modalCreditsEl.innerHTML = d.credits.map((c) => `<li>${c}</li>`).join('');
   modalTextEl.innerHTML    = d.paragraphs.map((p) => `<p>${p}</p>`).join('');
@@ -515,12 +472,14 @@ function openModal(item, sectionKey, idx) {
 function closeModal() {
   if (!modalOpen) return;
   modalEl.classList.add('is-closing');
-  modalVideoEl.pause();
+  if (modalVideoEl) modalVideoEl.pause();
   setTimeout(() => {
     modalEl.hidden = true;
     modalEl.classList.remove('is-closing');
-    modalVideoEl.removeAttribute('src');
-    modalVideoEl.load();
+    if (modalVideoEl) {
+      modalVideoEl.removeAttribute('src');
+      modalVideoEl.load();
+    }
     modalOpen = false;
     pauseAllStrips(false);
     if (modalReturnFocusEl && modalReturnFocusEl.focus) modalReturnFocusEl.focus();
@@ -672,7 +631,6 @@ let focusedIdx = 0;
 function setFocused(i) {
   focusedIdx = ((i % sectionElements.length) + sectionElements.length) % sectionElements.length;
   sectionElements.forEach((el, n) => el.classList.toggle('is-focused', n === focusedIdx));
-  // Labels live outside the sections now, so toggle them in step.
   const labelEls = document.querySelectorAll('.menu-labels .section-label');
   labelEls.forEach((el, n) => el.classList.toggle('is-focused', n === focusedIdx));
 }
